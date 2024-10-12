@@ -34,7 +34,7 @@
                         @endif
                         <form action="{{ route('admin/products/save') }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <span class="fs-5">Add Food</span>
+                            <span class="fs-5">Add Product</span>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -55,7 +55,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" name="price" class="form-control" placeholder="Price">
+                                        <input type="number" name="price" class="form-control" placeholder="Price" step="0.01" required>
                                         @error('price')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror

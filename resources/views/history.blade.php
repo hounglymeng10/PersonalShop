@@ -5,14 +5,14 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
         <div class="container d-flex align-items-center justify-content-between">
             <a href="/home" class="logo d-flex align-items-center me-auto me-lg-0">
-                <h1>HFood<span>.</span></h1>
+                <h1>Mexxtenn Order</h1>
             </a>
 
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a href="/home">Home</a></li>
                     <li><a href="/home/#about">About</a></li>
-                    <li><a href="/home/#menu">Menu</a></li>
+                    <li><a href="/home/#menu">Product</a></li>
                     <li><a href="/home/#contact">Contact</a></li>
                     <li class="dropdown">
                         <a href=""><span>{{ Auth::user()->name }}</span> <i
@@ -73,14 +73,14 @@
                             <div class="card text-start mb-3">
                                 <div class="row">
                                     <div class="col-md-4">
+                                        <p class="card-text ms-3 mt-3" style="color: tomato; font-size: 15px"><b>{{ $order->product->title }}</b></p>
                                         <img class="card-img-top p-3"
                                             src="{{ asset('images/' . $order->product->image) }}" alt=""
                                             style="width: 250px; height: 220px">
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="card-body pt-4">
+                                        <div class="card-body pt-4 mt-4">
                                             <h5 class="card-title">Order Number: {{ $order->order_number }}</h5>
-                                            <p class="card-text">Name: {{ $order->product->title }}</p>
                                             <p class="card-text">Total Price: ${{ $order->total_price }}</p>
                                             <p class="card-text">Quantity: {{ $order->quantity }}</p>
                                             <p class="card-text">Special Request: {{ $order->special_request }}</p>
@@ -90,9 +90,8 @@
                                                 {{ $order->created_at->format('d M Y, h:i A') }}</p>
                                         </div>
                                     </div>
-                                    <div class="col-md-2 pt-4">
-                                        <p class="card-text">{{ ucfirst($order->status) }}</p>
-
+                                    <div class="col-md-2 pt-4 mt-3">
+                                        <p class="card-text" style="background-color: #3cb048; color: #fff; padding: 10px 20px; border-radius: 5px; display: inline-block; text-align: center; transition: background-color 0.3s;">{{ ucfirst($order->status) }}</p>
                                     </div>
                                 </div>
                             </div>

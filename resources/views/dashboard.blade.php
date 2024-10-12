@@ -1,9 +1,54 @@
 <x-app-layout>
+    <!DOCTYPE html>
     <html lang="en">
 
     <head>
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/search.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/cart.css') }}" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+        <style>
+            /* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #e4e3dd;
+    text-align: left;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #323330;
+    margin-bottom: 20px;
+}
+
+        </style>
     </head>
 
     <body>
@@ -11,44 +56,20 @@
         <header id="header" class="header fixed-top d-flex align-items-center">
             <div class="container d-flex align-items-center justify-content-between">
                 <a href="/home" class="logo d-flex align-items-center me-auto me-lg-0">
-                    <h1>HFood<span>.</span></h1>
+                    <h1>Mexxtenn site</h1>
                 </a>
 
                 <nav id="navbar" class="navbar">
                     <ul>
                         <li><a href="#hero">Home</a></li>
-                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#menu">Product</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
-                        <div class="ms-3" style="cursor: pointer;">
-                            <a href="/home/cart"><i class="fa-solid fa-cart-shopping fs-5"></i></a>
-                        </div>
-                        
-                        {{-- Notification --}}
-                        <div class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-envelope fa-fw" style="font-size: 20px"></i>
-                                <!-- Counter - Messages -->
-                                <span class="badge badge-danger" style="font-size: 10px; position: absolute; top: -19px; right: 6px;">7</span>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="messagesDropdown">
-                                <h6 class="dropdown-header">
-                                    Your Orders Notification
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="img/undraw_profile_1.svg" alt="Ordered products image">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div class="font-weight-bold">
-                                        <div class="text-truncate">Ordered products title</div>
-                                        <div class="small text-gray-500">(Your food is coming(if admin aprrove), Out of stock(if admin desline), Original(pending))</div>
-                                    </div>
-                                </a>
-                            </div>
+                        <div class="cart-container">
+                            <a href="/home/cart"><i class="fa-solid fa-cart-shopping fs-4"></i></a>
+                            @if ($totalCount > 0)
+                                <span class="badge">{{ $totalCount }}</span>
+                            @endif
                         </div>
 
                         <li class="dropdown"><a href=""><span>{{ Auth::user()->name }}</span> <i
@@ -102,18 +123,44 @@
             <div class="container">
                 <div class="row justify-content-between gy-5">
                     <div
-                        class="col-lg-5 Add to cart-2 Add to cart-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
-                        <h2 data-aos="fade-up">Enjoy Your Healthy<br>Delicious Food</h2>
-                        <p data-aos="fade-up" data-aos-delay="100">Sed autem laudantium dolores. Voluptatem itaque ea
-                            consequatur eveniet. Eum quas beatae cumque eum quaerat.</p>
+                        class="col-lg-5 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
+                        <h1 data-aos="fade-up" style="font-size: 3rem;">Mexxtenn Order<br>Membership</h1>
+                        <p data-aos="fade-up" data-aos-delay="100" style="font-size: 1.2rem;">This project aims to solve that by
+                        developing an integrated E-commerce system that streamlines
+                        these tasks.</p>
                         <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-                            <a href="#menu" class="btn-book-a-table">Explore food</a>
+                            <a href="#menu" class="btn-book-a-table" style="font-size: 1rem;">View Products</a>
                         </div>
                     </div>
-                    <div class="col-lg-5 Add to cart-1 Add to cart-lg-2 text-center text-lg-start">
-                        <img src="https://wallpapers.com/images/featured/food-4k-1pf6px6ryqfjtnyr.jpg" class="img-fluid"
-                            alt="" data-aos="zoom-out" data-aos-delay="300">
+                    <div class="col-lg-5 text-center text-lg-start">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-aos="zoom-out" data-aos-delay="300">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="{{ asset('images/1.jpg') }}" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('images/2.jpg') }}" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('images/3.jpg') }}" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
+                </div>
+
                 </div>
             </div>
         </section><!-- End Hero Section -->
@@ -123,29 +170,27 @@
             <!-- ======= Menu Section ======= -->
             <section id="menu" class="menu">
                 <div class="container" data-aos="fade-up">
-
                     <div class="section-header">
-                        <h2>Our Menu</h2>
-                        <p>Check Our <span>Healthy Menu</span></p>
+                    <h1 data-aos="fade-up" style="font-size: 3rem;">OUR PRODUCTS</h1>
                     </div>
                     {{-- Search --}}
-                    <div class="search mb-5">
-                        {{-- <form action="{{ route('food.products.search') }}" method="GET">
+                    {{-- <div class="search mb-5">
+                        <form action="{{ route('food.products.search') }}" method="GET">
                             <i class="fa fa-search"></i>
                             <input type="text" name="search" class="form-control" placeholder="Search by title, price, or category">
                             <button type="submit" class="btn btn-primary">Search</button>
-                        </form> --}}
-                    </div>
+                        </form>
+                    </div> --}}
                     <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
                         <li class="nav-item">
                             <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#menu-all">
-                                <h4 style="color: green; cursor: pointer; font-size: large;">All</h4>
+                                <h4 style="color: gray; cursor: pointer; font-size: large;">Products</h4>
                             </a>
                         </li>
                         @foreach ($categories as $category)
                             <li class="nav-item">
                                 <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-{{ $category->id }}">
-                                    <h4 style="color: orangered; font-size: large; cursor: pointer;">
+                                    <h4 style="color: gray; font-size: large; cursor: pointer;">
                                         {{ $category->name }}</h4>
                                 </a>
                             </li>
@@ -173,7 +218,7 @@
                                                                 <h4 class="menu-title p-3 price">{{ $product->title }}
                                                                 </h4>
                                                                 <h5 class="menu-category ms-3 mb-3"
-                                                                    style="color: green;">
+                                                                    style="color: gray;">
                                                                     {{ $product->category->name ?? 'No Category' }}
                                                                 </h5>
                                                             </div>
@@ -187,7 +232,7 @@
                                                                     @csrf
                                                                     <input type="hidden" name="product_id"
                                                                         value="{{ $product->id }}">
-                                                                    <button type="submit" class="btn btn-primary">Add
+                                                                    <button type="submit" class="btn btn-secondary">Add
                                                                         to cart</button>
                                                                 </form>
                                                             </div>
@@ -198,7 +243,7 @@
                                         </section>
                                     </div>
 
-                                    <!-- Food Modal -->
+                                    <!-- Product Modal -->
                                     <div class="modal fade product-modal" id="productModal{{ $product->id }}"
                                         tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
@@ -218,9 +263,9 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <p class="price">
-                                                                    ${{ $product->price }}/each
+                                                                    ${{ $product->price }}
                                                                 </p>
-                                                                <div class="fs-5 my-1 text-warning">Information:</div>
+                                                                <div class="fs-5 my-1 text-black">Description</div>
                                                                 <p>{!! $product->description !!}</p>
                                                             </div>
                                                         </div>
@@ -231,7 +276,7 @@
                                                         @csrf
                                                         <input type="hidden" name="product_id"
                                                             value="{{ $product->id }}">
-                                                        <button type="submit" class="btn btn-primary">Add
+                                                        <button type="submit" class="btn btn-secondary">Add
                                                             to cart</button>
                                                     </form>
                                                 </div>
@@ -254,52 +299,44 @@
                                         </div>
                                     @else
                                         @foreach ($category->products as $product)
-                                            <div class="col-lg-3 col-md-6 mb-4">
-                                                <section id="menu" class="menu">
-                                                    <div data-aos="fade-up">
-                                                        <div class="tab-content" data-aos="fade-up"
-                                                            data-aos-delay="300">
-                                                            <div class="row gy-5 justify-content-center">
-                                                                <div class="col-lg-12 menu-item">
-                                                                    <a href="#" data-bs-toggle="modal"
-                                                                        data-bs-target="#productModal{{ $category->id }}{{ $product->id }}"
-                                                                        class="glightbox">
-                                                                        <img src="{{ asset('images/' . $product->image) }}"
-                                                                            alt="{{ $product->title }}"
-                                                                            class="menu-img">
-                                                                    </a>
-                                                                    <div class="menu-details">
-                                                                        <h4 class="menu-title p-3 price">
-                                                                            {{ $product->title }}</h4>
-                                                                        <h5 class="menu-category ms-3 mb-3"
-                                                                            style="color: green;">
-                                                                            {{ $product->category->name ?? 'No Category' }}
-                                                                        </h5>
-                                                                    </div>
-                                                                    <div
-                                                                        class="menu-footer d-flex justify-content-between align-items-center">
-                                                                        <p class="price">
-                                                                            ${{ $product->price }}
-                                                                        </p>
-                                                                        <div>
-                                                                            <form action="{{ route('cart.add') }}"
-                                                                                method="POST">
-                                                                                @csrf
-                                                                                <input type="hidden"
-                                                                                    name="product_id"
-                                                                                    value="{{ $product->id }}">
-                                                                                <button type="submit"
-                                                                                    class="btn btn-primary">Add
-                                                                                    to cart</button>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </section>
-                                            </div>
+                                        <div class="col-lg-3 col-md-6 mb-4">
+    <section id="menu" class="menu">
+        <div data-aos="fade-up">
+            <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
+                <div class="row gy-5 justify-content-center">
+                    <div class="col-lg-12 menu-item">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#productModal{{ $category->id }}{{ $product->id }}" class="glightbox">
+                            <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->title }}" class="menu-img">
+                        </a>
+                        <div class="menu-details">
+                            <h4 class="menu-title p-3 price" style="color: #323330;"> <!-- Added inline style for color -->
+                                {{ $product->title }}
+                            </h4>
+                            <h5 class="menu-category ms-3 mb-3" style="color: #323330;"> <!-- Added inline style for color -->
+                                {{ $product->category->name ?? 'No Category' }}
+                            </h5>
+                        </div>
+                        <div class="menu-footer d-flex justify-content-between align-items-center">
+                            <p class="price" style="color: #323330;"> <!-- Added inline style for color -->
+                                ${{ $product->price }}
+                            </p>
+                            <div>
+                                <form action="{{ route('cart.add') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                    <button type="submit" class="btn btn-primary" style="background-color: #748957;"> <!-- Added inline style for background color -->
+                                        Add to cart
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
 
                                             <!-- Food Modal -->
                                             <div class="modal fade product-modal"
@@ -324,10 +361,10 @@
                                                                     </div>
                                                                     <div class="col-md-6">
                                                                         <p class="price">
-                                                                            ${{ $product->price }}/each
+                                                                            ${{ $product->price }}
                                                                         </p>
                                                                         <div class="fs-5 my-1 text-warning">
-                                                                            Information:</div>
+                                                                            Description</div>
                                                                         <p>{!! $product->description !!}</p>
                                                                     </div>
                                                                 </div>
@@ -338,7 +375,7 @@
                                                                 @csrf
                                                                 <input type="hidden" name="product_id"
                                                                     value="{{ $product->id }}">
-                                                                <button type="submit" class="btn btn-primary">Add
+                                                                <button type="submit" class="btn btn-secondary">Add
                                                                     to cart</button>
                                                             </form>
                                                         </div>
@@ -358,122 +395,111 @@
                     </div>
                 </div>
             </section><!-- End Menu Section -->
-
-            <!-- ======= About Section ======= -->
-            <section id="about" class="about">
-                <div class="container" data-aos="fade-up">
-
-                    <div class="section-header">
-                        <h2>About Us</h2>
-                        <p>Learn More <span>About Us</span></p>
-                    </div>
-
-                    <div class="row gy-4">
-                        <div class="col-lg-7 position-relative about-img"
-                            style="background-image: url(https://wallpapers.com/images/featured/food-4k-1pf6px6ryqfjtnyr.jpg);"
-                            data-aos="fade-up" data-aos-delay="150">
-                            <div class="call-us position-absolute">
-                                <h4>Book a Table</h4>
-                                <p>+1 5589 55488 55</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
-                            <div class="content ps-0 ps-lg-5">
-                                <p class="fst-italic">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore
-                                    magna aliqua.
-                                </p>
-                                <ul>
-                                    <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat.</li>
-                                    <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in
-                                        voluptate velit.</li>
-                                    <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat. Duis aute irure dolor in reprehenderit in voluptate trideta
-                                        storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-                                </ul>
-                                <p>
-                                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                    reprehenderit in voluptate
-                                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                                    non proident
-                                </p>
-
-                                <div class="position-relative mt-4">
-                                    <img src="https://wallpapers.com/images/featured/food-4k-1pf6px6ryqfjtnyr.jpg"
-                                        class="img-fluid" alt="">
-                                    <a href="https://www.youtube.com/" class="glightbox play-btn"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section><!-- End About Section -->
-
-            <!-- ======= Contact Section ======= -->
-            <section id="contact" class="contact">
-                <div class="container" data-aos="fade-up">
-
-                    <div class="section-header">
-                        <h2>Contact</h2>
-                        <p>Need Help? <span>Contact Us</span></p>
-                    </div>
-
-                    <div class="mb-3">
-                        <iframe style="bAdd to cart:0; width: 100%; height: 350px;"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3908.773035617568!2d104.88924327693495!3d11.568121794920096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109519fe4077d69%3A0x20138e822e434660!2sRoyal%20University%20of%20Phnom%20Penh!5e0!3m2!1sen!2skh!4v1717785996720!5m2!1sen!2skh"
-                            framebAdd to cart="0" allowfullscreen></iframe>
-                    </div><!-- End Google Maps -->
-
-                    <div class="row gy-4">
-
-                        <div class="col-md-6">
-                            <div class="info-item  d-flex align-items-center">
-                                <i class="icon fa-solid fa-location-dot flex-shrink-0"></i>
-                                <div>
-                                    <h3>Our Address</h3>
-                                    <p>Rupp</p>
-                                </div>
-                            </div>
-                        </div><!-- End Info Item -->
-
-                        <div class="col-md-6">
-                            <div class="info-item d-flex align-items-center">
-                                <i class="icon fa-solid fa-envelope flex-shrink-0"></i>
-                                <div>
-                                    <h3>Email Us</h3>
-                                    <p>contact@gmail.com</p>
-                                </div>
-                            </div>
-                        </div><!-- End Info Item -->
-
-                        <div class="col-md-6">
-                            <div class="info-item  d-flex align-items-center">
-                                <i class="icon fa-solid fa-phone flex-shrink-0"></i>
-                                <div>
-                                    <h3>Call Us</h3>
-                                    <p>+855 12345678</p>
-                                </div>
-                            </div>
-                        </div><!-- End Info Item -->
-
-                        <div class="col-md-6">
-                            <div class="info-item  d-flex align-items-center">
-                                <i class="icon fa-solid fa-clock flex-shrink-0"></i>
-                                <div>
-                                    <h3>Opening Hours</h3>
-                                    <div><strong>Mon-Sat:</strong> 9AM - 22PM;
-                                        <strong>Sunday:</strong> Closed
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- End Info Item -->
-
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <h1>Contact Us</h1>
+        </div>
+        <div class="row gy-4">
+            <!-- Address -->
+            <div class="col-md-6">
+                <div class="info-item d-flex align-items-center">
+                    <i class="icon fa-solid fa-location-dot flex-shrink-0"></i>
+                    <div>
+                        <h3>Our Address</h3>
+                        <p><a href="https://maps.app.goo.gl/aeZsTBwcVw6cwCto8" target="_blank">Mexxtenn HealthyFoods</a></p>
                     </div>
                 </div>
-            </section><!-- End Contact Section -->
+            </div><!-- End Info Item -->
+
+            <!-- Email -->
+            <div class="col-md-6">
+                <div class="info-item d-flex align-items-center">
+                    <i class="icon fa-solid fa-envelope flex-shrink-0"></i>
+                    <div>
+                        <h3>Email Us</h3>
+                        <p><a href="mailto:houng.lymeng.2821@rupp.edu.kh">houng.lymeng.2821@rupp.edu.kh</a></p>
+                    </div>
+                </div>
+            </div><!-- End Info Item -->
+
+            <!-- Phone -->
+            <div class="col-md-6">
+                <div class="info-item d-flex align-items-center">
+                    <i class="icon fa-solid fa-phone flex-shrink-0"></i>
+                    <div>
+                        <h3>Call Us</h3>
+                        <p><a href="tel:+85568500601">+855 68 500 601</a></p>
+                    </div>
+                </div>
+            </div><!-- End Info Item -->
+
+            <!-- Opening Hours -->
+            <div class="col-md-6">
+                <div class="info-item d-flex align-items-center">
+                    <i class="icon fa-solid fa-clock flex-shrink-0"></i>
+                    <div>
+                        <h3>Opening Hours</h3>
+                        <p>Mon-Sat: 9AM - 10PM<br>Sun: Closed</p>
+                    </div>
+                </div>
+            </div><!-- End Info Item -->
+        </div>
+    </div>
+</section><!-- End Contact Section -->
+
+<!-- Add some styling to the contact section -->
+<style>
+    .contact {
+        background-color: #f5f5f5;
+        padding: 40px 0;
+    }
+
+    .contact .section-header h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .contact .section-header p {
+        font-size: 1.1rem;
+        color: #555;
+    }
+
+    .info-item {
+        background: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+    .info-item .icon {
+        font-size: 1.5rem;
+        color: #FF2D20;
+        margin-right: 15px;
+    }
+
+    .info-item h3 {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+    }
+
+    .info-item p {
+        font-size: 1rem;
+    }
+
+    .info-item a {
+        color: #FF2D20;
+        text-decoration: none;
+    }
+
+    .info-item a:hover {
+        text-decoration: underline;
+    }
+    
+</style>
+
 
         </main><!-- End #main -->
 
@@ -482,36 +508,14 @@
 
             <div class="container">
                 <div class="row gy-3 d-flex justify-content-center">
-                    <div class="col-lg-3 col-md-6 d-flex">
-                        <i class="bi bi-geo-alt icon"></i>
-                        <div>
-                            <h4>Address</h4>
-                            <p>
-                                ITE Y3<br>
-                                RUPP<br>
-                            </p>
-                        </div>
-
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 footer-links d-flex">
-                        <i class="bi bi-clock icon"></i>
-                        <div>
-                            <h4>Opening Hours</h4>
-                            <p>
-                                <strong>Mon-Sat: 9AM</strong> - 22PM<br>
-                                Sunday: Closed
-                            </p>
-                        </div>
-                    </div>
-
                     <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Follow Us</h4>
+
                         <div class="social-links d-flex">
-                            <a href="#" class="twitter"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="#" class="facebook"><i class="fa-brands fa-x"></i></a>
-                            <a href="#" class="instagram"><i class="fa-brands fa-telegram"></i></a>
-                            <a href="#" class="linkedin"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="https://www.facebook.com/houng.lymeng.168/" class="twitter"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://www.facebook.com/houng.lymeng.168/" class="facebook"><i class="fa-brands fa-x"></i></a>
+                            <a href="https://www.facebook.com/houng.lymeng.168/" class="instagram"><i class="fa-brands fa-telegram"></i></a>
+                            <a href="https://www.facebook.com/houng.lymeng.168/" class="linkedin"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="https://www.facebook.com/houng.lymeng.168/" class="linkedin"><i class="fa-brands fa-linkedin"></i></a>
                         </div>
                     </div>
 
@@ -520,7 +524,7 @@
 
             <div class="container">
                 <div class="copyright">
-                    &copy; Copyright <strong><span>HFood</span></strong>. All Rights Reserved
+                    &copy;All Rights Reserved by <strong><span>mexxtennsite</span></strong>
                 </div>
             </div>
 

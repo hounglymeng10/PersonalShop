@@ -35,7 +35,7 @@
                         <form action="{{ route('admin/products/update', $products->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
-                            <span class="fs-5">Edit Food</span>
+                            <span class="fs-5">Edit Product</span>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -56,7 +56,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" name="price" class="form-control" placeholder="Price" value="{{$products->price}}">
+                                        <input type="number" name="price" class="form-control" placeholder="Price" step="0.01" required value="{{$products->price}}">
                                         @error('price')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror

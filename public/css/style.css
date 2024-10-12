@@ -7,7 +7,7 @@
 /* Colors */
 :root {
   --color-default: #212529;
-  --color-primary: #ce1212;
+  --color-primary: #748957;
   --color-secondary: #37373f;
 }
 
@@ -30,7 +30,7 @@ a {
 }
 
 a:hover {
-  color: #ec2727;
+  color: #323330;
   text-decoration: none;
 }
 
@@ -68,7 +68,7 @@ section {
   font-weight: 400;
   margin: 0;
   padding: 0;
-  color: #7f7f90;
+  color: #748957;
   text-transform: uppercase;
   font-family: var(--font-default);
 }
@@ -167,7 +167,7 @@ section {
 }
 
 .scroll-top:hover {
-  background: #ec2727;
+  background: #748957;
   color: #fff;
 }
 
@@ -311,7 +311,7 @@ section {
   .navbar .active,
   .navbar .active:focus,
   .navbar li:hover>a {
-    color: #000;
+    color: #748957;
   }
 
   .navbar .dropdown ul {

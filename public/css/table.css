@@ -91,7 +91,7 @@ table.table td a.settings {
     color: #2196F3;
 }
 table.table td a.delete {
-    color: #F44336;
+    color: #748957;
 }
 table.table td i {
     font-size: 19px;
@@ -142,10 +142,10 @@ table.table .avatar {
     color: #666;
 }	
 .pagination li.active a, .pagination li.active a.page-link {
-    background: #03A9F4;
+    background: #748957;
 }
 .pagination li.active a:hover {        
-    background: #0397d6;
+    background: #748957;
 }
 .pagination li.disabled i {
     color: #ccc;

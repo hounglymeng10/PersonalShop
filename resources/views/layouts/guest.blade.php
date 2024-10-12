@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'HFood') }}</title>
+        <title>{{ config('app.name', 'Mexxtennsite') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -18,7 +18,7 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
             <div>
                 <a href="#" class="logo d-flex align-items-center me-auto me-lg-0">
-                    <h1 style="font-size: 25px;">HFood<span style="color: red">.</span></h1>
+                    <h1 style="font-size: 25px;">Mexxtennsite</h1>
                 </a>
             </div>
 

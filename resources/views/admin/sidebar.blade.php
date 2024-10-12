@@ -44,7 +44,7 @@
         <a class="nav-link collapsed" href="{{ route('products.index') }}" aria-expanded="true"
             aria-controls="collapseUtilities">
             <i class="fa-solid fa-burger"></i>
-            <span>Food</span>
+            <span>Product</span>
         </a>
     </li>
     <li class="nav-item ps-4">

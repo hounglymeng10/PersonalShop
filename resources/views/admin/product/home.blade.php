@@ -28,7 +28,7 @@
                                             <div class="table-title">
                                                 <div class="row">
                                                     <div class="col-sm-5">
-                                                        <h2>Food <b>Management</b></h2>
+                                                        <h2>Products <b>Management</b></h2>
                                                     </div>
                                                     <div class="col-sm-7">
                                                         <a href="{{ route('admin/products/create') }}"
@@ -39,7 +39,7 @@
                                                             class="d-inline-block">
                                                             <div class="input-group">
                                                                 <input type="text" name="search"
-                                                                    class="form-control" placeholder="Search foods..."
+                                                                    class="form-control" placeholder="Search products..."
                                                                     value="{{ request('search') }}">
                                                                 <div class="input-group-append">
                                                                     <button class="btn"
@@ -79,7 +79,7 @@
                                                             <td>{{ $product->title }}</td>
                                                             <td>{{ $product->category->name ?? 'No Category' }}</td>
                                                             <td>{!! $product->description !!}</td>
-                                                            <td>$ {{ $product->price }}</td>
+                                                            <td>${{ $product->price }}</td>
                                                             <td>
                                                                 <a href="{{ route('admin/products/edit', ['id' => $product->id]) }}"
                                                                     class="settings" title="Settings"
