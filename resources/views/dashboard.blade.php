@@ -124,7 +124,7 @@ p {
                 <div class="row justify-content-between gy-5">
                     <div
                         class="col-lg-5 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
-                        <h1 data-aos="fade-up" style="font-size: 3rem;">Mexxtenn Order<br>Membership</h1>
+                        <h1 data-aos="fade-up" style="font-size: 3rem;">Find your style life<br>On MEXXTENN</h1>
                         <p data-aos="fade-up" data-aos-delay="100" style="font-size: 1.2rem;">This project aims to solve that by
                         developing an integrated E-commerce system that streamlines
                         these tasks.</p>
