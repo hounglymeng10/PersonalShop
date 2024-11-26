@@ -159,6 +159,8 @@
             opacity: 1;
         }
 
+        
+
         @media (max-width: 768px) {
             .container {
                 padding: 20px;
@@ -198,39 +200,109 @@
         <a href="{{ route('login') }}" class="btn btn-primary">Login</a>
         <a href="{{ route('register') }}" class="btn btn-primary">Register</a>
     </div>
+    <div>
+        ..
+    </div>
 
-    <div>
-        ..
+    <div style="margin-top: 20px; text-align: center;">
+        <!-- Brand Logo -->
+        <img src="/images/Mexxtenn4.png" alt="Brand Logo" style="width: 150px; height: auto; margin-bottom: 10px;">
     </div>
-    <div>
-        ..
-    </div>
-    <div>
-        ..
-    </div>
-    <div>
-        <p>Best Clothes, Best Quality</p>
-    </div>
-    <!-- Small Slideshows -->
-    <div class="small-slideshows">
-        <!-- Example small slideshows with images -->
-        <div class="small-slideshow">
+
+<!-- Small Slideshows: Top Section -->
+<div class="small-slideshows top-section">
+    <!-- Slideshow 1: Login Role -->
+    <div class="small-slideshow">
+        <a href="{{ route('login') }}" style="display: block; width: 100%; height: 100%;">
             <div class="small-slide active" style="background-image: url('/images/1.jpg');"></div>
+            <div class="small-slide" style="background-image: url('/images/AC001.jpg');"></div>
+        </a>
+        <a href="{{ route('login') }}" style="display: block; width: 100%; height: 100%;">
             <div class="small-slide" style="background-image: url('/images/5.jpg');"></div>
-        </div>
-        <div class="small-slideshow">
-            <div class="small-slide active" style="background-image: url('/images/3.jpg');"></div>
-            <div class="small-slide" style="background-image: url('/images/4.jpg');"></div>
-        </div>
-        <div class="small-slideshow">
-            <div class="small-slide active" style="background-image: url('/images/6.jpg');"></div>
-            <div class="small-slide" style="background-image: url('/images/5.jpg');"></div>
-        </div>
-        <div class="small-slideshow">
-            <div class="small-slide active" style="background-image: url('/images/3.jpg');"></div>
-            <div class="small-slide" style="background-image: url('/images/4.jpg');"></div>
-        </div>
+        </a>
     </div>
+
+    <!-- Slideshow 2: Register Role -->
+    <div class="small-slideshow">
+        <a href="{{ route('register') }}" style="display: block; width: 100%; height: 100%;">
+            <div class="small-slide active" style="background-image: url('/images/AC005.jpg');"></div>
+            <div class="small-slide" style="background-image: url('/images/4.jpg');"></div>
+        </a>
+        <a href="{{ route('register') }}" style="display: block; width: 100%; height: 100%;">
+            <div class="small-slide" style="background-image: url('/images/4.jpg');"></div>
+        </a>
+    </div>
+
+    <!-- Slideshow 3: Login Role -->
+    <div class="small-slideshow">
+        <a href="{{ route('login') }}" style="display: block; width: 100%; height: 100%;">
+            <div class="small-slide active" style="background-image: url('/images/6.jpg');"></div>
+            <div class="small-slide" style="background-image: url('/images/1.jpg');"></div>
+        </a>
+        <a href="{{ route('login') }}" style="display: block; width: 100%; height: 100%;">
+            <div class="small-slide" style="background-image: url('/images/2.jpg');"></div>
+        </a>
+    </div>
+
+    <!-- Slideshow 4: Register Role -->
+    <div class="small-slideshow">
+        <a href="{{ route('register') }}" style="display: block; width: 100%; height: 100%;">
+            <div class="small-slide active" style="background-image: url('/images/5.jpg');"></div>
+            <div class="small-slide" style="background-image: url('/images/AC001.jpg');"></div>
+        </a>
+        <a href="{{ route('register') }}" style="display: block; width: 100%; height: 100%;">
+            <div class="small-slide" style="background-image: url('/images/3.jpg');"></div>
+        </a>
+    </div>
+</div>
+
+<!-- Small Slideshows: Bottom Section -->
+<div class="small-slideshows bottom-section">
+    <!-- Slideshow 5: Login Role -->
+    <div class="small-slideshow">
+        <a href="{{ route('login') }}" style="display: block; width: 100%; height: 100%;">
+            <div class="small-slide active" style="background-image: url('/images/1.jpg');"></div>
+            <div class="small-slide" style="background-image: url('/images/3.jpg');"></div>
+        </a>
+        <a href="{{ route('login') }}" style="display: block; width: 100%; height: 100%;">
+            <div class="small-slide" style="background-image: url('/images/5.jpg');"></div>
+        </a>
+    </div>
+
+    <!-- Slideshow 6: Register Role -->
+    <div class="small-slideshow">
+        <a href="{{ route('register') }}" style="display: block; width: 100%; height: 100%;">
+            <div class="small-slide active" style="background-image: url('/images/3.jpg');"></div>
+            <div class="small-slide" style="background-image: url('/images/4.jpg');"></div>
+        </a>
+        <a href="{{ route('register') }}" style="display: block; width: 100%; height: 100%;">
+            <div class="small-slide" style="background-image: url('/images/5.jpg');"></div>
+        </a>
+    </div>
+
+    <!-- Slideshow 7: Login Role -->
+    <div class="small-slideshow">
+        <a href="{{ route('login') }}" style="display: block; width: 100%; height: 100%;">
+            <div class="small-slide active" style="background-image: url('/images/2.jpg');"></div>
+            <div class="small-slide" style="background-image: url('/images/5.jpg');"></div>
+        </a>
+        <a href="{{ route('login') }}" style="display: block; width: 100%; height: 100%;">
+            <div class="small-slide" style="background-image: url('/images/5.jpg');"></div>
+        </a>
+    </div>
+
+    <!-- Slideshow 8: Register Role -->
+    <div class="small-slideshow">
+        <a href="{{ route('register') }}" style="display: block; width: 100%; height: 100%;">
+            <div class="small-slide active" style="background-image: url('/images/4.jpg');"></div>
+            <div class="small-slide" style="background-image: url('/images/6.jpg');"></div>
+        </a>
+        <a href="{{ route('register') }}" style="display: block; width: 100%; height: 100%;">
+            <div class="small-slide" style="background-image: url('/images/6.jpg');"></div>
+        </a>
+    </div>
+</div>
+
     <div class="container">
         <h1>Welcome to Mexxtenn Order</h1>
         <p>At Mexxtenn, we make shopping easy and enjoyable. Find the latest products, great deals, and everything you need, all in one place.</p>
