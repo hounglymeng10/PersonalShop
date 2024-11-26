@@ -46,6 +46,7 @@ p {
     font-weight: 400;
     color: #323330;
     margin-bottom: 20px;
+    
 }
 
         </style>
@@ -55,9 +56,11 @@ p {
         <!-- ======= Header ======= -->
         <header id="header" class="header fixed-top d-flex align-items-center">
             <div class="container d-flex align-items-center justify-content-between">
-                <a href="/home" class="logo d-flex align-items-center me-auto me-lg-0">
-                    <h1>Mexxtenn site</h1>
-                </a>
+            <a href="/home" class="logo d-flex align-items-center me-auto me-lg-0">
+            <!-- Logo Image -->
+            <img src="{{ asset('images/Mexxtenn4.png') }}" alt="Mexxtenn Logo" class="logo-img">
+        </a>
+
 
                 <nav id="navbar" class="navbar">
                     <ul>
@@ -124,10 +127,8 @@ p {
                 <div class="row justify-content-between gy-5">
                     <div
                         class="col-lg-5 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
-                        <h1 data-aos="fade-up" style="font-size: 3rem;">Find your style life<br>On MEXXTENN</h1>
-                        <p data-aos="fade-up" data-aos-delay="100" style="font-size: 1.2rem;">This project aims to solve that by
-                        developing an integrated E-commerce system that streamlines
-                        these tasks.</p>
+                        <h1 data-aos="fade-up" style="font-size: 3rem;">Find your style life<br>On Mexxtenn</h1>
+                        <p data-aos="fade-up" data-aos-delay="100" style="font-size: 1.2rem;">Together! let's make Cambodia glow.</p>
                         <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
                             <a href="#menu" class="btn-book-a-table" style="font-size: 1rem;">View Products</a>
                         </div>
