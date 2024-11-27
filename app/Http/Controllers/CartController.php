@@ -29,7 +29,7 @@ class CartController extends Controller
             ]);
         }
 
-        return back()->with('success', 'Food added to cart successfully!');
+        return back()->with('success', 'Products added to cart successfully!');
     }
 
     public function showCart()
@@ -54,7 +54,7 @@ class CartController extends Controller
 
         $cartItem->delete();
 
-        return redirect()->back()->with('success', 'Food removed from cart successfully!');
+        return redirect()->back()->with('success', 'Products removed from cart successfully!');
     }
     public function updateCartItem(Request $request, Cart $cartItem)
     {
