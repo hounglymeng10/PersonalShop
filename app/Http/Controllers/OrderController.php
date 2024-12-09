@@ -72,6 +72,20 @@ class OrderController extends Controller
     {
         $user = Auth::user();
 
+        // Validate inputs
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
+            'phone' => 'required|regex:/^(\+?)[0-9]{6,15}$/',
+            'special_request' => 'nullable|string',
+            'payment_method' => 'required|string',
+            'items' => 'required|array', // Ensure items are provided as an array
+        ]);
+
+        // Format user details
+        $userDetails = "{$request->name}, {$request->address}, {$request->phone}";
+
+        // Process each item in the order
         foreach ($request->items as $itemId => $item) {
             $order = new Order();
             $order->order_number = uniqid();
@@ -79,16 +93,21 @@ class OrderController extends Controller
             $order->total_price = $item['total_price'];
             $order->quantity = $item['quantity'];
             $order->status = 'pending';
-            $order->special_request = $request->special_request;
             $order->payment_method = $request->payment_method;
             $order->user_id = $user->id;
+
+            // Store user details in the special_request field
+            $order->special_request = "User Details: $userDetails\nSpecial Request: {$request->special_request}";
+
             $order->save();
         }
 
+        // Clear the user's cart after order placement
         Cart::where('user_id', $user->id)->delete();
 
         return redirect()->route('dashboard')->with('success', 'Order placed successfully!');
     }
+
 
     public function index(Request $request)
     {

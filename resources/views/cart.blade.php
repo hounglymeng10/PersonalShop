@@ -139,10 +139,28 @@
                                         <label class="form-check-label" for="pay_other">Card</label>
                                     </div> --}}
                                 </div>
+
                                 <div class="message_box py-3">
-                                <h2 class="pb-3 fs-5">Remark (please, include your phone number for delivery):</h2>
-                                    <textarea name="special_request" id="special_request" rows="3" class="form-control"></textarea>
+                                    <h2 class="pb-3 fs-5">Thank you for chosing Mexxtenn! Please fill for your delivery.</h2>
+
+                                    <!-- Name Field -->
+                                    <label for="name" class="form-label">Name:</label>
+                                    <input type="text" name="name" id="name" class="form-control mb-3" placeholder="Enter your name" required>
+
+                                    <!-- Address Field -->
+                                    <label for="address" class="form-label">Address:</label>
+                                    <input type="text" name="address" id="address" class="form-control mb-3" placeholder="Enter your address" required>
+
+                                    <!-- Phone Field -->
+                                    <label for="phone" class="form-label">Phone:</label>
+                                    <input type="tel" name="phone" id="phone" class="form-control mb-3" placeholder="Enter your phone number" required>
+
+                                    <!-- Special Request -->
+                                    <label for="special_request" class="form-label">Special Request:</label>
+                                    <textarea name="special_request" id="special_request" rows="5" class="form-control"></textarea>
                                 </div>
+
+                                
                                 <div class="cart_buttons">
                                     <button type="button" class="button cart_button_clear"><a class="text-black" href="/home/#menu">Continue Shopping</a></button>
                                     <button type="submit" class="button cart_button_checkout">Check out</button>
