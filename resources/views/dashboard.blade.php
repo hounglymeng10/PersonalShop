@@ -339,7 +339,7 @@ p {
 </div>
 
 
-                                            <!-- Food Modal -->
+                                            <!-- Modal -->
                                             <div class="modal fade product-modal"
                                                 id="productModal{{ $category->id }}{{ $product->id }}"
                                                 tabindex="-1" aria-labelledby="productModalLabel"

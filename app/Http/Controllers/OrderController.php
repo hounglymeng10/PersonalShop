@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use App\Notifications\OrderPlacedNotification;
 use App\Notifications\OrderStatusNotification;
 use Illuminate\Support\Facades\Notification;
+use Telegram\Bot\Api;
 
 class OrderController extends Controller
 {
@@ -68,6 +69,17 @@ class OrderController extends Controller
         return redirect()->route('orders.index')->with('success', 'Order created successfully');
     }
 
+    public function placeOrder(Request $request)
+    {
+        // Place the order logic
+        $orderDetails = "Order ID: 12345\nCustomer Name: {$request->name}";
+
+        // Send Telegram alert
+        TelegramHelper::sendMessage("New Order Placed:\n$orderDetails");
+
+        return redirect()->route('dashboard')->with('success', 'Order placed and notification sent!');
+    }
+
     public function checkout(Request $request)
     {
         $user = Auth::user();
@@ -101,6 +113,8 @@ class OrderController extends Controller
 
             $order->save();
         }
+
+        
 
         // Clear the user's cart after order placement
         Cart::where('user_id', $user->id)->delete();
@@ -215,4 +229,5 @@ class OrderController extends Controller
 
         return view('admin.revenue_form', compact('totalAmount', 'income', 'outcome', 'startDate', 'endDate'));
     }
+    
 }
