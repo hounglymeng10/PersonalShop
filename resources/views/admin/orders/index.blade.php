@@ -60,14 +60,14 @@
                                             <table class="table table-striped table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <th>Order No.</th>
+                                                        <th>Order ID</th>
                                                         <th>Image</th>
                                                         <th>Remark</th>
-                                                        <th>Food</th>
+                                                        <th>Products</th>
                                                         <th>Total</th>
                                                         <th>Quantity</th>
                                                         <th>Customer</th>
-                                                        <th>Paid</th>
+                                                        <th>Payment</th>
                                                         <th>Status</th>
                                                     </tr>
                                                 </thead>

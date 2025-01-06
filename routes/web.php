@@ -76,7 +76,8 @@ Route::middleware('auth')->group(function () {
     Route::put('/home/cart/{cartItem}', [CartController::class, 'updateCartItem'])->name('cart.update');
 
     Route::get('/home', [CartCountController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
-
+    
+    Route::get('/products/search', [ProductController::class, 'search'])->name('product.search');
 
 
 });

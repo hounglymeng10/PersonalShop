@@ -60,7 +60,13 @@ p {
             <!-- Logo Image -->
             <img src="{{ asset('images/Mexxtenn4.png') }}" alt="Mexxtenn Logo" class="logo-img">
         </a>
-
+        
+        <!-- ======= Search ======= -->
+        <form action="{{ route('product.search') }}" method="GET" class="d-flex">
+            <input type="text" name="search" class="form-control" placeholder="Search products..." required style="max-width: 200px; width: 400%; padding: 0.5rem; border: 1px solid #ced4da; border-radius: 0.25rem;">
+            <button type="submit" class="btn btn-secondary ms-2">Search</button>
+        </form>
+        <!-- ======= End Search ======= -->
 
                 <nav id="navbar" class="navbar">
                     <ul>
@@ -69,12 +75,14 @@ p {
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
                         <div class="cart-container">
-                            <a href="/home/cart"><i class="fa-solid fa-cart-shopping fs-4"></i></a>
+                            <a href="/home/cart"><i class="fa-solid fa-cart-arrow-down fs-4"></i></a>
                             @if ($totalCount > 0)
                                 <span class="badge">{{ $totalCount }}</span>
                             @endif
                         </div>
 
+
+                        
                         <li class="dropdown"><a href=""><span>{{ Auth::user()->name }}</span> <i
                                     class="bi bi-chevron-down dropdown-indicator"></i></a>
                             <ul>
@@ -129,12 +137,9 @@ p {
                         class="col-lg-5 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
                         <h1 data-aos="fade-up" style="font-size: 3rem;">Find your style life<br>On Mexxtenn</h1>
                         <p data-aos="fade-up" data-aos-delay="100" style="font-size: 1.2rem;">Together! let's make Cambodia glow.</p>
-                        <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-                            <a href="#menu" class="btn-book-a-table" style="font-size: 1rem;">View Products</a>
-                        </div>
                     </div>
                     <div class="col-lg-5 text-center text-lg-start">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-aos="zoom-out" data-aos-delay="300">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-aos="zoom-out" data-aos-delay="300" data-bs-interval="2500" data-bs-ride="carousel">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -171,9 +176,8 @@ p {
             <!-- ======= Menu Section ======= -->
             <section id="menu" class="menu">
                 <div class="container" data-aos="fade-up">
-                    <div class="section-header">
-                    <h1 data-aos="fade-up" style="font-size: 3rem;">OUR PRODUCTS</h1>
-                    </div>
+
+                    
                     {{-- Search --}}
                     {{-- <div class="search mb-5">
                         <form action="{{ route('food.products.search') }}" method="GET">
@@ -198,13 +202,14 @@ p {
                         @endforeach
                     </ul>
 
-                    <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
+                    <div class="tab-content" data-aos="fade-up" data-aos-delay="500">
                         <div class="tab-pane fade active show" id="menu-all">
+                            
                             <!-- Display all products -->
                             <div class="row">
                                 @foreach ($products as $product)
-                                    <div class="col-lg-3 col-md-6">
-                                        <section id="menu" class="menu">
+                                    <div class="col-lg-3 col-md-6 mb-5">
+                                        <section id="menu" class="menu mt-3">
                                             <div data-aos="fade-up">
                                                 <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
                                                     <div class="row gy-5 justify-content-center">
@@ -243,7 +248,7 @@ p {
                                             </div>
                                         </section>
                                     </div>
-
+                                    
                                     <!-- Product Modal -->
                                     <div class="modal fade product-modal" id="productModal{{ $product->id }}"
                                         tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
@@ -286,10 +291,12 @@ p {
                                     </div>
                                 @endforeach
                             </div>
-                        </div>
 
+                        </div>
                         @foreach ($categories as $category)
                             <div class="tab-pane fade" id="menu-{{ $category->id }}">
+
+
                                 <!-- Display products for this category -->
                                 <div class="row">
                                     @if ($category->products->isEmpty())
@@ -396,6 +403,9 @@ p {
                     </div>
                 </div>
             </section><!-- End Menu Section -->
+
+
+            
 <!-- ======= Contact Section ======= -->
 <section id="contact" class="contact">
     <div class="container" data-aos="fade-up">
@@ -409,7 +419,7 @@ p {
                     <i class="icon fa-solid fa-location-dot flex-shrink-0"></i>
                     <div>
                         <h3>Our Address</h3>
-                        <p><a href="https://maps.app.goo.gl/aeZsTBwcVw6cwCto8" target="_blank">Mexxtenn HealthyFoods</a></p>
+                        <p><a href="https://maps.app.goo.gl/aeZsTBwcVw6cwCto8" target="_blank">Mexxtenn Shop</a></p>
                     </div>
                 </div>
             </div><!-- End Info Item -->

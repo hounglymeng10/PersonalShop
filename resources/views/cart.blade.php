@@ -16,7 +16,7 @@
                     <li><a href="/home/#menu">Product</a></li>
                     <li><a href="/home/#contact">Contact</a></li>
                     <div class="cart-container">
-                        <a href="/home/cart"><i class="fa-solid fa-cart-shopping fs-4"></i></a>
+                        <a href="/home/cart"><i class="fa-solid fa-cart-arrow-down fs-4"></i></a>
                         @if ($totalCount > 0)
                             <span class="badge">{{ $totalCount }}</span>
                         @endif
@@ -74,7 +74,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Image</th>
-                                        <th scope="col">Name</th>
+                                        <th scope="col">Product</th>
                                         <th scope="col">Quantity</th>
                                         <th scope="col">Price</th>
                                         <th scope="col">Total</th>
@@ -132,7 +132,7 @@
                                     <h4 class="pb-3 pt-4">Payment Method:</h4>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="payment_method" id="pay_cash" value="cash" checked>
-                                        <label class="form-check-label" for="pay_cash">Cash</label>
+                                        <label class="form-check-label" for="pay_cash">Cash on Delivery</label>
                                     </div>
                                     {{-- <div class="form-check">
                                         <input class="form-check-input" type="radio" name="payment_method" id="pay_other" value="KHQR">

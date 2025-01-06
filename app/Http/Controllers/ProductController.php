@@ -146,4 +146,19 @@ class ProductController extends Controller
 
         return redirect(route('admin/products'));
     }
+    public function showDashboard(Request $request)
+    {
+        // Assuming you need to get products and categories
+        $products = Product::paginate(12);
+        $categories = Category::all();
+    
+        // Get the total count of items in the user's cart
+        $totalCount = Cart::where('user_id', Auth::id())->count();
+    
+        return view('dashboard', [
+            'products' => $products,
+            'categories' => $categories,
+            'totalCount' => $totalCount, // Make sure this variable is passed
+        ]);
+    }
 }

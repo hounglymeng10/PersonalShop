@@ -95,7 +95,7 @@
                                                         </tr>
                                                     @empty
                                                         <tr>
-                                                            <td class="text-center" colspan="7">Food not found</td>
+                                                            <td class="text-center" colspan="7">Product not found</td>
                                                         </tr>
                                                     @endforelse
                                                 </tbody>
